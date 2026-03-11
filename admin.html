@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin — Fika's</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/admin.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>"/>
+</head>
+<body>
+
+  <!-- ══ LOGIN ══════════════════════════════════════════════ -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-box">
+      <span class="login-logo">Fika's</span>
+      <p class="login-sub">Panel de Administración</p>
+      <div class="login-field">
+        <input type="password" id="loginPass" placeholder="Contraseña" autocomplete="current-password"/>
+      </div>
+      <p class="login-error" id="loginError"></p>
+      <button class="login-btn" id="loginBtn">Entrar →</button>
+    </div>
+  </div>
+
+  <!-- ══ PANEL ══════════════════════════════════════════════ -->
+  <div class="admin-wrap" id="adminWrap" style="display:none">
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand">
+        <span class="sb-logo">Fika's</span>
+        <span class="sb-label">Admin</span>
+      </div>
+      <nav class="sidebar-nav">
+        <button class="snav-btn active" data-view="reservas">
+          <span class="snav-icon">📋</span> Reservas
+        </button>
+        <button class="snav-btn" data-view="hoy">
+          <span class="snav-icon">📅</span> Hoy
+        </button>
+        <button class="snav-btn" data-view="resumen">
+          <span class="snav-icon">📊</span> Resumen
+        </button>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="index.html" class="sidebar-link">← Ir al sitio</a>
+        <button class="sidebar-link logout-btn" id="logoutBtn">Salir</button>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="admin-main">
+
+      <!-- Vista: Reservas -->
+      <section class="admin-view active" id="viewReservas">
+        <div class="view-header">
+          <div>
+            <h1 class="view-title">Reservaciones</h1>
+            <p class="view-sub">Gestiona todas las reservas del restaurante</p>
+          </div>
+          <div class="view-actions">
+            <input type="text" class="search-input" id="searchInput" placeholder="Buscar por nombre…"/>
+            <select class="filter-select" id="filterStatus">
+              <option value="all">Todos los estados</option>
+              <option value="pendiente">Pendiente</option>
+              <option value="confirmada">Confirmada</option>
+              <option value="cancelada">Cancelada</option>
+              <option value="completada">Completada</option>
+            </select>
+            <button class="export-btn" id="exportBtn">↓ CSV</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="res-table" id="resTable">
+            <thead>
+              <tr>
+                <th>Ref.</th>
+                <th>Cliente</th>
+                <th>Teléfono</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Personas</th>
+                <th>Ocasión</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="resTableBody"></tbody>
+          </table>
+          <p class="empty-state" id="emptyState" style="display:none">No se encontraron reservas.</p>
+        </div>
+      </section>
+
+      <!-- Vista: Hoy -->
+      <section class="admin-view" id="viewHoy">
+        <div class="view-header">
+          <div>
+            <h1 class="view-title">Reservas de Hoy</h1>
+            <p class="view-sub" id="fechaHoyLabel"></p>
+          </div>
+        </div>
+        <div class="today-stats" id="todayStats"></div>
+        <div class="today-list" id="todayList"></div>
+      </section>
+
+      <!-- Vista: Resumen -->
+      <section class="admin-view" id="viewResumen">
+        <div class="view-header">
+          <h1 class="view-title">Resumen General</h1>
+        </div>
+        <div class="stats-grid" id="statsGrid"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

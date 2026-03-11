@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reservar Mesa — Fika's Restaurant & Coffee Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/reservaciones.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>"/>
+</head>
+<body class="res-page">
+
+  <!-- Header simplificado -->
+  <header class="site-header scrolled" style="position:relative;backdrop-filter:none;background:var(--ivory);">
+    <div class="header-left">
+      <a href="index.html" class="brand">
+        <span class="brand-name" style="color:var(--charcoal);">Fika's</span>
+        <span class="brand-sub" style="color:var(--sand-dark);">Restaurant &amp; Coffee · Volcán, Chiriquí</span>
+      </a>
+    </div>
+    <a href="index.html" class="back-link">← Volver al sitio</a>
+  </header>
+
+  <main class="res-main">
+    <!-- Columna info -->
+    <div class="res-info">
+      <div class="res-info-inner">
+        <span class="section-label">Reservaciones</span>
+        <h1 class="res-title">Asegura<br/>tu mesa</h1>
+        <p class="res-subtitle">Reserva con anticipación y llega a disfrutar sin esperas. Confirmamos tu mesa por WhatsApp en menos de 2 horas.</p>
+
+        <div class="res-highlights">
+          <div class="rh-item">
+            <span class="rh-icon">⏰</span>
+            <div>
+              <strong>Horario</strong>
+              <span>Lun – Dom · 7:00 AM – 9:00 PM</span>
+            </div>
+          </div>
+          <div class="rh-item">
+            <span class="rh-icon">📍</span>
+            <div>
+              <strong>Ubicación</strong>
+              <span>Vía Cerro Punta, Volcán, Chiriquí</span>
+            </div>
+          </div>
+          <div class="rh-item">
+            <span class="rh-icon">✅</span>
+            <div>
+              <strong>Confirmación</strong>
+              <span>Por WhatsApp en menos de 2 horas</span>
+            </div>
+          </div>
+          <div class="rh-item">
+            <span class="rh-icon">💳</span>
+            <div>
+              <strong>Pago</strong>
+              <span>Efectivo · Tarjetas · Yappy</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="res-photo">
+          <img src="https://degusta-pic-sq.b-cdn.net/pix_14_107816_199384_643af20a8bdd6.jpg" alt="Parrillada Fika's" loading="lazy"/>
+          <div class="res-photo-tag">Parrillada Mixta — $16.00</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna formulario -->
+    <div class="res-form-col">
+      <div class="res-form-wrap" id="formWrap">
+        <h2 class="form-title">Datos de tu reserva</h2>
+
+        <div class="form-body" id="formBody">
+          <!-- Fila 1 -->
+          <div class="field-group">
+            <div class="field">
+              <label for="nombre">Nombre completo *</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name"/>
+              <span class="field-error" id="errNombre"></span>
+            </div>
+            <div class="field">
+              <label for="telefono">Teléfono / WhatsApp *</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+507 6000-0000" required autocomplete="tel"/>
+              <span class="field-error" id="errTelefono"></span>
+            </div>
+          </div>
+
+          <!-- Fila 2 -->
+          <div class="field-group">
+            <div class="field">
+              <label for="fecha">Fecha *</label>
+              <input type="date" id="fecha" name="fecha" required/>
+              <span class="field-error" id="errFecha"></span>
+            </div>
+            <div class="field">
+              <label for="hora">Hora *</label>
+              <select id="hora" name="hora" required>
+                <option value="">Selecciona hora</option>
+                <option>07:00 AM</option><option>07:30 AM</option>
+                <option>08:00 AM</option><option>08:30 AM</option>
+                <option>09:00 AM</option><option>09:30 AM</option>
+                <option>10:00 AM</option><option>10:30 AM</option>
+                <option>11:00 AM</option><option>11:30 AM</option>
+                <option>12:00 PM</option><option>12:30 PM</option>
+                <option>01:00 PM</option><option>01:30 PM</option>
+                <option>02:00 PM</option><option>02:30 PM</option>
+                <option>03:00 PM</option><option>03:30 PM</option>
+                <option>04:00 PM</option><option>04:30 PM</option>
+                <option>05:00 PM</option><option>05:30 PM</option>
+                <option>06:00 PM</option><option>06:30 PM</option>
+                <option>07:00 PM</option><option>07:30 PM</option>
+                <option>08:00 PM</option><option>08:30 PM</option>
+              </select>
+              <span class="field-error" id="errHora"></span>
+            </div>
+          </div>
+
+          <!-- Fila 3 -->
+          <div class="field-group">
+            <div class="field">
+              <label for="personas">Número de personas *</label>
+              <select id="personas" name="personas" required>
+                <option value="">¿Cuántos son?</option>
+                <option>1 persona</option><option>2 personas</option>
+                <option>3 personas</option><option>4 personas</option>
+                <option>5 personas</option><option>6 personas</option>
+                <option>7 personas</option><option>8 personas</option>
+                <option>9 o más personas</option>
+              </select>
+              <span class="field-error" id="errPersonas"></span>
+            </div>
+            <div class="field">
+              <label for="ocasion">Ocasión especial</label>
+              <select id="ocasion" name="ocasion">
+                <option value="">Ninguna en particular</option>
+                <option>Cumpleaños</option>
+                <option>Aniversario</option>
+                <option>Reunión de negocios</option>
+                <option>Reunión familiar</option>
+                <option>Cita romántica</option>
+                <option>Celebración especial</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Notas -->
+          <div class="field">
+            <label for="notas">Comentarios adicionales</label>
+            <textarea id="notas" name="notas" rows="3" placeholder="Alergias, peticiones especiales, etc."></textarea>
+          </div>
+
+          <p class="form-note">* Campos obligatorios. Recibirás confirmación por WhatsApp.</p>
+
+          <button class="btn-submit" id="btnSubmit" type="button">
+            <span id="btnText">Enviar Reserva →</span>
+            <span id="btnLoader" style="display:none">Enviando…</span>
+          </button>
+        </div>
+
+        <!-- Estado de éxito -->
+        <div class="form-success" id="formSuccess" style="display:none">
+          <div class="success-icon">✓</div>
+          <h3>¡Reserva enviada!</h3>
+          <p id="successMsg">Te confirmaremos por WhatsApp muy pronto.</p>
+          <div class="success-actions">
+            <a href="index.html" class="btn-ghost">← Volver al inicio</a>
+            <a id="whatsappConfirm" href="#" target="_blank" rel="noopener" class="btn-solid">Confirmar por WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/reservaciones.js"></script>
+</body>
+</html>
